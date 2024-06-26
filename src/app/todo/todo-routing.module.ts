@@ -5,8 +5,7 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 
 
 const routes: Routes = [
-  {path: "", redirectTo:"todos", pathMatch: "full"},
-  {path: "todos", component: TodosComponent},
+  {path: "", component: TodosComponent},
   {path: "add-todo", component: AddTodoComponent},
 ];
 
