@@ -1,0 +1,15 @@
+
+<div class="notes">
+    <ng-container *ngFor="let note of notes">
+        <div style="cursor: pointer;" (click)="navigateToDetails(note.id)">
+            {{note.title}}
+        </div>
+    </ng-container>
+
+    <br>
+    <br>
+    <br>
+    <div class="add-notes">
+        <button (click)="addNotes()">add notes</button>
+    </div>
+</div>
