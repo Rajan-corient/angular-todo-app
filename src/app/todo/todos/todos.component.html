@@ -1,1 +1,20 @@
-<p>todos works!</p>
+<div class="todo-list">
+  <h3>Todo List</h3>
+  <ng-container *ngIf="todos$ | async">
+    <ul>
+        <li *ngFor="let todo of todos$ | async">
+            <div class="todo">
+                <span>
+                    {{ todo.title }}
+                </span>            
+                <span>
+                    {{ todo.description }}
+                </span>
+            </div>
+            <div class="remove-todo">
+                <button class="btn btn-sm btn-danger" (click)="removeTodo(todo.id)">Remove</button>
+            </div>
+        </li>
+      </ul>
+  </ng-container>
+</div>

@@ -1,15 +1,17 @@
 <div class="add-note">
-    <div class="title">
-        <input id="title" [(ngModel)]="title"/>
+    <div class="title my-4">
+        <label for="title">Title</label>
+        <input class="form-control" id="title" [(ngModel)]="title"/>
     </div>
 
-    <div class="desc">
-        <input id="desc" [(ngModel)]="description" />
+    <div class="desc my-4">
+        <label for="description">Description</label>
+        <input class="form-control" id="description" [(ngModel)]="description" />
     </div>
 
     <div class="save">
-        <button class="save-btn" (click)="save()"> 
-            Save
+        <button class="add-btn btn btn-primary" (click)="addTodo()"> 
+            Add Todo
         </button>
     </div>
 </div>

@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { removeTodo } from 'src/app/store/actions/app.actions';
+import { selectTodos } from 'src/app/store/selectors/app.selectors';
+import { Todo } from '../todo.model';
 
 @Component({
   selector: 'app-todos',
@@ -7,21 +12,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent {
-  notes:any = [];
-  
-  constructor(private router: Router) {
+  todos$:Observable<Todo[]>;
 
+  constructor(private store: Store) {
+    this.todos$ = this.store.select(selectTodos);
   }
 
   ngOnInit() {
-    this.notes = JSON.parse(localStorage.getItem("notes") || "[]");
+    
   }
 
-  navigateToDetails(id:number) {
-    this.router.navigateByUrl(`note-details/${id}`);
+  removeTodo(id:number) {
+    this.store.dispatch(removeTodo({ id }));
   }
 
-  addNotes() {
-    this.router.navigateByUrl("/add-note")
-  }
 }

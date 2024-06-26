@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { selectTodos } from 'src/app/store/selectors/app.selectors';
+import { Todo } from '../todo.model';
+import { addTodo } from 'src/app/store/actions/app.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-todo',
@@ -7,32 +11,27 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-todo.component.scss']
 })
 export class AddTodoComponent {
-  noteId:any
   title: string = "";
   description:string = "";
+  products$: Observable<Todo[]>;
 
-  constructor(private activeRoute: ActivatedRoute){
-  
+  constructor(private store: Store) {
+    this.products$ = this.store.select(selectTodos);
   }
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe(({id}) => {
-      const notes = JSON.parse(localStorage.getItem('notes') || "[]");
-      const noteObj = notes.find((item:any) => item.id === Number(id));
-      this.title = noteObj.title;
-      this.description = noteObj.description;
-    });
   }
 
-  save() {
-    const obj = {
-      id: Math.random(),
-      title: this.title,
-      description: this.description
+  addTodo() {
+    if (this.title && this.description) {
+      const id = +(Math.random() * 10).toFixed(4);
+      const todo:Todo = {
+        id: id,
+        title: this.title,
+        description: this.description
+      }
+      this.store.dispatch(addTodo({ todo }));
     }
-
-    const notes  = JSON.parse(localStorage.getItem('notes') || "[]");
-    notes.push(obj);
-    localStorage.setItem("notes", JSON.stringify(notes));
   }
+
 }
