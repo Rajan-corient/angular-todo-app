@@ -4,17 +4,19 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer
+  MetaReducer,
 } from '@ngrx/store';
-import { todosReducer, TodoState } from '../store/reducers/app.reducers';
+import { todosReducer, TodoState } from '../store/reducers/app.reducer';
+import { cartReducer, productState } from '../store/reducers/cart.reducer';
 
 export interface AppState {
-  todos: TodoState
+  todos: TodoState;
+  products: productState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  todos: todosReducer
+  todos: todosReducer,
+  products: cartReducer,
 };
-
 
 export const metaReducers: MetaReducer<AppState>[] = isDevMode() ? [] : [];

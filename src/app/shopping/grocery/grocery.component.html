@@ -1,39 +1,36 @@
 <div class="shopping-cards">
-    <div class="row row-cols-2 row-cols-md-4 g-4">
-      <ng-container *ngFor="let grocery of groceryList">
-        <div class="col card-item" [routerLink]="grocery.name">
-          <div class="card py-2 mx-auto">
-            <img
-              [src]="grocery.img"
-              class="card-img-top m-2"
-              [alt]="grocery.name"
-            />
-            <div class="card-body">
-              <p class="card-title">{{grocery.name}}</p>
-              <span>{{grocery.weight}}</span>
-              <div class="price">
-                  <span class="discounted-price">
-                    <i class="bi bi-currency-rupee"></i>
-                    {{grocery.discountedPricePerKg}}
-                  </span>
-                <span class="acual-price opacity-25 text-decoration-line-through">
-                    <i class="bi bi-currency-rupee"></i>
-                    {{grocery.actualPricePerKg}}
-                </span>
-              </div>
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    <ng-container *ngFor="let grocery of groceryList$ | async">
+      <div class="col card-item">
+        <div class="card py-2 mx-auto">
+          <img [src]="grocery.img" class="card-img-top m-2" [alt]="grocery.name" />
+          <div class="card-body">
+            <p class="card-title">{{grocery.name}}</p>
+            <span>{{grocery.weight}}</span>
+            <div class="price">
+              <span class="discounted-price">
+                <i class="bi bi-currency-rupee"></i>
+                {{grocery.discountedPricePerKg}}
+              </span>
+              <span class="acual-price opacity-25 text-decoration-line-through">
+                <i class="bi bi-currency-rupee"></i>
+                {{grocery.actualPricePerKg}}
+              </span>
+            </div>
 
-              <div class="cart text-center">
-                
-                <button *ngIf="grocery.count === 0" type="submit" class="btn btn-outline-success add-to-cart">Add to Cart</button>
-                <div *ngIf="grocery.count > 0" class="btn-group">
-                    <button type="button" class="btn btn-outline-secondary minus">-</button>
-                    <button type="button" class="btn btn-outline-secondary plus">+</button>
-                </div>
-          </div>
+            <div class="cart text-center">
+              <button *ngIf="grocery.count === 0" type="submit" class="btn btn-outline-success add-to-cart"
+                (click)="addGrocery(grocery)">Add to
+                Cart</button>
+              <div *ngIf="grocery.count > 0" class="btn-group">
+                <button type="button" class="btn btn-outline-secondary minus" (click)="addGrocery(grocery)">-</button>
+                <button type="button" class="btn btn-outline-secondary plus"
+                  (click)="removeGrocery(grocery.id)">+</button>
+              </div>
             </div>
           </div>
         </div>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </div>
-  
+</div>
