@@ -1,0 +1,21 @@
+<div class="shopping-cards">
+    <div class="row row-cols-2 row-cols-md-3 g-4">
+      <ng-container *ngFor="let grocery of groceryList">
+        <div class="col card-item" [routerLink]="grocery.name">
+          <div class="card p-2">
+            <img
+              [src]="grocery.img"
+              class="card-img-top m-2"
+              [alt]="grocery.name"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ grocery.title }}</h5>
+              <p class="card-text">{{ grocery.description }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  

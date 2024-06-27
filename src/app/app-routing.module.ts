@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: "notes", component: NotesComponent},
   {path: "add-note", component: AddNoteComponent},
   {path: "note-details/:id", component: AddNoteComponent},
-  {path: "todos", loadChildren:()=> import('./todo/todo.module').then(m=> m.TodoModule)},
+  {path: "todos", loadChildren:()=> import('./todo/todo.module').then(m=> m.TodoModule)},  
+  {path: "shopping", loadChildren:()=> import('./shopping/shopping.module').then(m=> m.ShoppingModule)},
 ];
 
 @NgModule({
