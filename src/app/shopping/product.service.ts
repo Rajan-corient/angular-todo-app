@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, from, of } from 'rxjs';
-import { mergeMap, delay, takeUntil } from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 import { Iproduct } from './shopping.model';
 
 const groceryItems: Iproduct[] = [
@@ -67,6 +67,6 @@ export class ProductService {
   constructor() {}
 
   getProducts(): Observable<Iproduct[]> {
-    return of(groceryItems).pipe(delay(10000));
+    return of(groceryItems).pipe(delay(1000));
   }
 }

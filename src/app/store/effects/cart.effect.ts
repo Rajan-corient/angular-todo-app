@@ -12,7 +12,7 @@ import { Iproduct } from 'src/app/shopping/shopping.model';
 
 @Injectable()
 export class CartEffects {
-  loadItems$ = createEffect(() =>
+  loadProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadProducts),
       mergeMap(() =>

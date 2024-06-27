@@ -18,14 +18,13 @@
               </span>
             </div>
 
-            <div class="cart text-center">
-              <button *ngIf="grocery.count === 0" type="submit" class="btn btn-outline-success add-to-cart"
+            <div class="cart text-center pt-4">
+              <button *ngIf="grocery.count === 0" type="submit" class="btn btn-outline-info add-to-cart w-100"
                 (click)="addGrocery(grocery)">Add to
                 Cart</button>
-              <div *ngIf="grocery.count > 0" class="btn-group">
-                <button type="button" class="btn btn-outline-secondary minus" (click)="addGrocery(grocery)">-</button>
-                <button type="button" class="btn btn-outline-secondary plus"
-                  (click)="removeGrocery(grocery.id)">+</button>
+              <div *ngIf="grocery.count > 0" class="btn-group w-100">
+                <button type="button" class="btn btn-outline-info minus" (click)="removeGrocery(grocery.id)">-</button>
+                <button type="button" class="btn btn-outline-info plus" (click)="addGrocery(grocery)">+</button>
               </div>
             </div>
           </div>

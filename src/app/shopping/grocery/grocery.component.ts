@@ -24,19 +24,13 @@ export class GroceryComponent implements OnInit {
   loading$: Observable<boolean>;
   error$: Observable<any>;
 
-  // groceryList: Iproduct[] = [];
-
   constructor(private store: Store) {
-    // this.store.select('grocery').subscribe((data) => {
-    //   this.groceryList = data;
-    //   });
     this.groceryList$ = this.store.select(selectProducts);
     this.loading$ = this.store.select(selectLoading);
     this.error$ = this.store.select(selectError);
   }
 
   ngOnInit(): void {
-    // console.log('333', this.groceryList);
     this.store.dispatch(loadProducts());
   }
 

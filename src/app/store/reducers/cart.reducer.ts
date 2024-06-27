@@ -23,40 +23,22 @@ export const initialState: productState = {
 export const cartReducer = createReducer(
   initialState,
   on(addProduct, (state, { product }) => {
-    const existingProduct = state.products.find(
-      (item) => item.id === product.id
-    );
-    if (existingProduct) {
-      return {
-        ...state,
-        products: state.products.map((item) =>
-          item.id === product.id ? { ...item, count: item.count + 1 } : item
-        ),
-      };
-    } else {
-      return {
-        ...state,
-        products: state.products.map((item) => ({ ...item, count: 1 })),
-      };
-    }
+    return {
+      ...state,
+      products: state.products.map((item) =>
+        item.id === product.id ? { ...item, count: item.count + 1 } : item
+      ),
+    };
   }),
   on(removeProduct, (state, { productId }) => {
-    const existingProduct = state.products.find(
-      (item) => item.id === productId
-    );
-    if (existingProduct && existingProduct.count > 1) {
-      return {
-        ...state,
-        products: state.products.map((item) =>
-          item.id === productId ? { ...item, count: item.count - 1 } : item
-        ),
-      };
-    } else {
-      return {
-        ...state,
-        products: state.products.filter((item) => item.id !== productId),
-      };
-    }
+    return {
+      ...state,
+      products: state.products.map((item) =>
+        item.id === productId
+          ? { ...item, count: item.count > 0 ? item.count - 1 : item.count }
+          : item
+      ),
+    };
   }),
 
   on(loadProducts, (state) => ({ ...state, loading: true })),
