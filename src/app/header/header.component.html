@@ -23,7 +23,8 @@
       <div class="cart">
         <button type="button" class="btn btn-primary position-relative">
           <i class="bi bi-cart-fill"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+          <span *ngIf="totalCartCount$ | async"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
             {{totalCartCount$ | async}}
             <span class="visually-hidden">unread messages</span>
           </span>
