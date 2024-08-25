@@ -1,0 +1,58 @@
+<!-- (ngSubmit)="onSubmit()" or (click) button-->
+<form [formGroup]="productForm">
+
+    <!-- <div class="form-group row">
+        <label class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+            <input formControlName="name" class="form-control" type="text" placeholder="Name" />
+        </div>
+    </div> -->
+
+    <!--FormArray-->
+    <div formArrayName="products">
+        <div *ngFor="let group of productsFormArray.controls; let i = index">
+            <div [formGroupName]="i" class="form-group row my-3">
+                <div class="col-3">
+                    <label class="col-2 col-form-label">Name</label>
+                    <input formControlName="name" class="form-control" type="text" />
+                </div>
+                <div class="col-3">
+                    <label class="col-2 col-form-label">Price</label>
+                    <input formControlName="price" class="form-control" type="text" />
+                </div>
+                <div class="col-3">
+                    <label class="col-2 col-form-label">Description</label>
+                    <input formControlName="description" class="form-control" type="text" />
+                </div>
+                <div class="col-3 mt-4">
+                    <button type="button" (click)="removeProduct(i)" class="btn btn-outline-danger">
+                        X
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product button  -->
+    <div class="form-group row">
+        <div class="col-12">
+            <button type="button" (click)="addProduct()" class="btn btn-primary btn-block">
+                Add Products
+            </button>
+        </div>
+    </div>
+
+    <!--Final buttons-->
+    <div class="form-group row mt-5">
+        <div class="input-group col-md-6">
+            <button type="button" (click)="onSubmit()" class="btn btn-outline-primary">
+                Save
+            </button>
+        </div>
+        <div class="input-group col-md-6 mt-2">
+            <button type="button" (click)="onResetForm()" class="btn btn-outline-primary">
+                Reset form
+            </button>
+        </div>
+    </div>
+</form>
