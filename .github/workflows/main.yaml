@@ -10,27 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      # Step 2: Installing the nodeJs
       - name: Adding Node.js
         uses: actions/setup-node@v2
         with:
           node-version: "20"
 
+      # Step 3: Installing the Dependencies
       - name: Install Dependencies
         run: npm install
 
+      # Step 4: Test the Angular app
       # - name: Run tests
       #   run: npm run test:headless
 
+      # Step 5: Build the Angular app
       - name: Build Angular App
         run: npm run build
 
+      # Step 6: Install dependencies
       - name: Deploy to gh pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/angular-2023
-          enable_jekyll: true
+          github_token: ${{ secrets.GH_TOKEN }} # Ensure GH_TOKEN is set in Secrets
+          publish_dir: dist/angular-2023 # Adjust this path as needed
+          enable_jekyll: true # Set to false if you don't want Jekyll processing
