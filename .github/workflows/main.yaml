@@ -32,6 +32,10 @@ jobs:
       - name: Build Angular App
         run: npm run build
 
+      # Stpe 6: Copy and rename the index.html to 4o4.html
+      - name: Rename index.html to 404.html
+        run: cp dist/angular-2023/index.html dist/angular-2023/404.html
+
       # Step 6: Install dependencies
       - name: Deploy to gh pages
         if: success()
