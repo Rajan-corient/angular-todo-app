@@ -7,7 +7,7 @@ const groceryItems: Iproduct[] = [
   {
     id: 1,
     name: 'Spinach',
-    img: '../../../assets/images/spinach.jpeg',
+    img: 'assets/images/spinach.jpeg',
     actualPricePerKg: 40,
     discountedPricePerKg: 34,
     weight: '1 KG',
@@ -16,7 +16,7 @@ const groceryItems: Iproduct[] = [
   {
     id: 2,
     name: 'Alu/Potato',
-    img: '../../../assets/images/potato.png',
+    img: 'assets/images/potato.png',
     actualPricePerKg: 25,
     discountedPricePerKg: 30,
     weight: '1 KG',
@@ -25,7 +25,7 @@ const groceryItems: Iproduct[] = [
   {
     id: 3,
     name: 'Banana',
-    img: '../../../assets/images/banana.jpeg',
+    img: 'assets/images/banana.jpeg',
     actualPricePerKg: 50,
     discountedPricePerKg: 40,
     weight: '1 KG',
@@ -34,7 +34,7 @@ const groceryItems: Iproduct[] = [
   {
     id: 4,
     name: 'Brinjal',
-    img: '../../../assets/images/brinjal.jpeg',
+    img: 'assets/images/brinjal.jpeg',
     actualPricePerKg: 55,
     discountedPricePerKg: 45,
     weight: '1 KG',
@@ -43,7 +43,7 @@ const groceryItems: Iproduct[] = [
   {
     id: 5,
     name: 'Onion',
-    img: '../../../assets/images/onion.jpeg',
+    img: 'assets/images/onion.jpeg',
     actualPricePerKg: 40,
     discountedPricePerKg: 36,
     weight: '1 KG',
@@ -52,7 +52,7 @@ const groceryItems: Iproduct[] = [
   {
     id: 6,
     name: 'Brinjal',
-    img: '../../../assets/images/brinjal.jpeg',
+    img: 'assets/images/brinjal.jpeg',
     actualPricePerKg: 40,
     discountedPricePerKg: 36,
     weight: '1 KG',
