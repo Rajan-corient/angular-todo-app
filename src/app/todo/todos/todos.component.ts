@@ -12,6 +12,7 @@ import { Todo } from '../todo.model';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent {
+  title = "Todo App";
   todos$:Observable<Todo[]>;
 
   constructor(private store: Store) {
