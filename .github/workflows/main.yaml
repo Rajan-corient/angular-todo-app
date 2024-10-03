@@ -25,18 +25,22 @@ jobs:
         run: npm install
 
       # Step 4: Test the Angular app
-      # - name: Run tests
-      #   run: npm run test:headless
+      - name: Run tests
+        run: npm run test:headless
 
-      # Step 5: Build the Angular app
+      # Step 5: Run linting for the Angular app
+      # - name: Run Lint
+      #   run: npm run lint
+
+      # Step 6: Build the Angular app
       - name: Build Angular App
         run: npm run build
 
-      # Stpe 6: Copy and rename the index.html to 4o4.html
+      # Stpe 7: Copy and rename the index.html to 4o4.html
       - name: Rename index.html to 404.html
         run: cp dist/angular-2023/index.html dist/angular-2023/404.html
 
-      # Step 6: Install dependencies
+      # Step 8: Install dependencies
       - name: Deploy to gh pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3

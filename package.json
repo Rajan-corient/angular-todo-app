@@ -7,7 +7,8 @@
     "build": "ng build --configuration production --base-href https://rajan-corient.github.io/angular-todo-app/",
     "build:prod": "ng build --configuration production --base-href https://rajan-corient.github.io/angular-todo-app/",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:ci": "ng test --no-watch --no-progress --browser=ChromeHeadless"
   },
   "private": true,
   "dependencies": {
