@@ -21,7 +21,7 @@
     "@angular/material": "^18.0.5",
     "@angular/platform-browser": "^18.0.4",
     "@angular/platform-browser-dynamic": "^18.0.4",
-    "@angular/router": "^18.0.4",
+    "@angular/router": "^18.2.7",
     "@ngrx/effects": "^18.0.0",
     "@ngrx/entity": "^18.0.0",
     "@ngrx/store": "^18.0.0",
